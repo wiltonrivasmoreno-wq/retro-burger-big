@@ -1,0 +1,409 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RETRO BURGER BIG | RESTAURANTE</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f5f0;
+            color: #222;
+        }
+
+        /* ENCABEZADO */
+        header {
+            background-color: #191919;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            color: #ffb000;
+            font-size: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffb000;
+        }
+
+        /* PORTADA */
+        .portada {
+            min-height: 430px;
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .portada h2 {
+            font-size: 45px;
+            margin-bottom: 18px;
+        }
+
+        .portada p {
+            font-size: 19px;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: #ffb000;
+            color: #191919;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #e69600;
+            transform: scale(1.04);
+        }
+
+        /* SECCIÓN DEL MENÚ */
+        .menu {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .descripcion {
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        /* TARJETAS DE PRODUCTOS */
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .producto {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-6px);
+        }
+
+        .producto img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .producto-info {
+            padding: 22px;
+        }
+
+        .producto h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .producto p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .precio {
+            display: block;
+            color: #d97706;
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .producto .boton {
+            width: 100%;
+        }
+
+        /* SOBRE NOSOTROS */
+        .nosotros {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 55px 10%;
+        }
+
+        .nosotros h2 {
+            color: #ffb000;
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .nosotros p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        /* CONTACTO */
+        .contacto {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .contacto h2 {
+            margin-bottom: 18px;
+            font-size: 30px;
+        }
+
+        .contacto p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        /* ADAPTACIÓN A CELULARES Y TABLETS */
+        @media (max-width: 900px) {
+            .productos {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .portada h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .productos {
+                grid-template-columns: 1fr;
+            }
+
+            .portada {
+                padding: 90px 20px;
+            }
+
+            .portada h2 {
+                font-size: 30px;
+            }
+
+            .menu {
+                padding: 45px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>RETRO BURGER BIG</h1>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Menú</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- PORTADA -->
+    <section class="portada" id="inicio">
+        <h2>¡El sabor que te hace volver!</h2>
+
+        <p>Hamburguesas, salchipapas y comida deliciosa para compartir.</p>
+
+        <a href="#menu" class="boton">Ver nuestro menú</a>
+    </section>
+
+    <!-- MENÚ -->
+    <section class="menu" id="menu">
+        <h2>Nuestro menú</h2>
+
+        <p class="descripcion">
+            Descubre algunos de nuestros productos favoritos.
+        </p>
+
+        <div class="productos">
+
+            <!-- PRODUCTO 1 -->
+            <article class="producto">
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+                    alt="Hamburguesa con carne, queso y vegetales"
+                    loading="lazy"
+                >
+
+                <div class="producto-info">
+                    <h3>Hamburguesa especial</h3>
+
+                    <p>
+                        Hamburguesa con carne, queso, vegetales
+                        y nuestras salsas.
+                    </p>
+
+                    <span class="precio">$18.000 COP</span>
+
+                    <a
+                        class="boton"
+                        href="https://wa.me/573106477491?text=Hola%2C%20quiero%20hacer%20un%20pedido"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </article>
+
+            <!-- PRODUCTO 2 -->
+            <article class="producto">
+                <img
+                    src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80"
+                    alt="Papas fritas doradas"
+                    loading="lazy"
+                >
+
+                <div class="producto-info">
+                    <h3>Salchipapa especial</h3>
+
+                    <p>
+                        Papas doradas, salchicha y salsas
+                        para disfrutar.
+                    </p>
+
+                    <span class="precio">$15.000 COP</span>
+
+                    <a
+                        class="boton"
+                        href="https://wa.me/573106477491?text=Hola%2C%20quiero%20pedir%20una%20salchipapa%20especial"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </article>
+
+            <!-- PRODUCTO 3 -->
+            <article class="producto">
+                <img
+                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
+                    alt="Pizza recién preparada"
+                    loading="lazy"
+                >
+
+                <div class="producto-info">
+                    <h3>Pizza de la casa</h3>
+
+                    <p>
+                        Pizza con queso derretido, salsa de tomate
+                        e ingredientes seleccionados.
+                    </p>
+
+                    <span class="precio">$22.000 COP</span>
+
+                    <a
+                        class="boton"
+                        href="https://wa.me/573001234567?text=Hola%2C%20quiero%20pedir%20una%20pizza%20de%20la%20casa"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="nosotros" id="nosotros">
+        <h2>Sobre nosotros</h2>
+
+        <p>
+            En Sabor Urbano nos encanta compartir buenos momentos
+            con comida deliciosa. Queremos ofrecerte una experiencia
+            agradable, productos preparados con dedicación y un
+            servicio cercano a nuestros clientes.
+        </p>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+        <h2>Haz tu pedido</h2>
+
+        <p>
+            ¿Se te antojó algo? Escríbenos por WhatsApp
+            para consultar el menú y realizar tu pedido.
+        </p>
+
+        <a
+            class="boton"
+            href="https://wa.me/573001234567?text=Hola%2C%20quiero%20conocer%20el%20menu"
+            target="_blank"
+            rel="noopener"
+        >
+            Contactar por WhatsApp
+        </a>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>
+            &copy; 2026 RETRO BURGER BIG.
+            Todos los derechos reservados.
+        </p>
+    </footer>
+
+</body>
+</html>
+```
